@@ -13,7 +13,6 @@ public class HibarnateUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public static SessionFactory getSessionFactory() {

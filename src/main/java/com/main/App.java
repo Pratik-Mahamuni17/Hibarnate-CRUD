@@ -16,6 +16,7 @@ public class App {
 		
 		UserDao dao = new UserDao();
 		dao.saveUser(user);
+		dao.getUser(2);
 	}
 
 }

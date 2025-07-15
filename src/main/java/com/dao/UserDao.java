@@ -21,4 +21,21 @@ public class UserDao {
 
 	}
 
+	
+	public void getUser(int id) {
+		try (Session session = HibarnateUtil.getSessionFactory().openSession()){
+			User user = session.get(User.class, id);
+			if(user != null) {
+				System.out.println("Id : "  + user.getId());
+				System.out.println("Name : " + user.getName());
+				System.out.println("Email: " + user.getEmail());
+				System.out.println("City: " + user.getCity());
+				System.out.println("Gender: " + user.getGender());
+			}else {
+				System.out.println("User Not Found");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
