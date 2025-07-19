@@ -15,8 +15,9 @@ public class App {
 		user.setGender("male");
 		
 		UserDao dao = new UserDao();
-		dao.saveUser(user);
-		dao.getUser(2);
+//		dao.saveUser(user);
+//		dao.getUser(2);
+//		dao.updateUser(2);
 	}
 
 }

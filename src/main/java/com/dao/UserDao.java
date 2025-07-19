@@ -31,10 +31,33 @@ public class UserDao {
 				System.out.println("Email: " + user.getEmail());
 				System.out.println("City: " + user.getCity());
 				System.out.println("Gender: " + user.getGender());
+				System.out.println("User Data Fetched successfully!");
 			}else {
 				System.out.println("User Not Found");
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void updateUser(int id) {
+		Transaction tx = null;
+		try(Session session = HibarnateUtil.getSessionFactory().openSession()){
+			tx = session.beginTransaction();
+			User user = session.get(User.class, id);
+			if(user != null) {
+				user.setName("Nishant");
+				user.setCity("Pune");
+				user.setEmail("nishant@gmail.com");
+				user.setPassword("1234");
+				session.update(user);
+				tx.commit();
+				System.out.println("User Data updated successfully!");
+			}else {
+				System.out.println("User Data not successfully!");
+			}
+		}catch(Exception e) {
+			if(tx != null) tx.rollback();
 			e.printStackTrace();
 		}
 	}
