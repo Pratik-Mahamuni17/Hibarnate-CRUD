@@ -41,6 +41,7 @@ public class UserDao {
 	}
 
 	public void updateUser(int id) {
+
 		Transaction tx = null;
 		try(Session session = HibarnateUtil.getSessionFactory().openSession()){
 			tx = session.beginTransaction();
@@ -58,6 +59,23 @@ public class UserDao {
 			}
 		}catch(Exception e) {
 			if(tx != null) tx.rollback();
+			e.printStackTrace();
+		}				
+	}
+
+	public void deleteUser(int id) {
+		Transaction tx = null;
+		try(Session session = HibarnateUtil.getSessionFactory().openSession()){
+			tx = session.beginTransaction();
+			User user = session.get(User.class, id);
+			if(user != null) {
+				session.delete(user);				
+			}
+			tx.commit();
+		}catch(Exception e) {
+			if(tx != null) {
+				tx.rollback();
+			}
 			e.printStackTrace();
 		}
 	}

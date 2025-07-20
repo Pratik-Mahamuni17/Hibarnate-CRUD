@@ -18,6 +18,8 @@ public class App {
 //		dao.saveUser(user);
 //		dao.getUser(2);
 //		dao.updateUser(2);
+
+		dao.deleteUser(1);
 	}
 
 }
