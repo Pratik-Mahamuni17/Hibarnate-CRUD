@@ -7,7 +7,7 @@ This is a simple Java-based CRUD (Create, Read, Update, Delete) application usin
 - Java
 - Hibernate ORM
 - MySQL
-- Maven (for dependency management)
+- Maven ( for dependency management )
 
 
 
