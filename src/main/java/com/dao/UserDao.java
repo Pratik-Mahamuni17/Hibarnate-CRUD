@@ -8,6 +8,7 @@ import com.entity.User;
 public class UserDao {
 		
 	public void saveUser(User user) {
+		
 		Transaction tx = null;
 		try(Session session = HibarnateUtil.getSessionFactory().openSession()){
 			tx = session.beginTransaction();
@@ -23,6 +24,7 @@ public class UserDao {
 
 	
 	public void getUser(int id) {
+		
 		try (Session session = HibarnateUtil.getSessionFactory().openSession()){
 			User user = session.get(User.class, id);
 			if(user != null) {
@@ -64,6 +66,7 @@ public class UserDao {
 	}
 
 	public void deleteUser(int id) {
+		
 		Transaction tx = null;
 		try(Session session = HibarnateUtil.getSessionFactory().openSession()){
 			tx = session.beginTransaction();
